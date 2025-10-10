@@ -1,4 +1,4 @@
-import { Anchor } from "lucide-react";
+import haltonLogo from "@/assets/halton-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -16,9 +16,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <Anchor className="h-8 w-8 text-primary" />
-              <h3 className="text-xl font-bold">Halton Marine</h3>
+            <div className="mb-4">
+              <img src={haltonLogo} alt="Halton Marine Logo" className="h-16 w-auto" />
             </div>
             <p className="text-background/80 mb-4 max-w-md">
               Leading indigenous company delivering world-class marine and dredging services 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import haltonLogo from "@/assets/halton-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,8 +22,8 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm shadow-[var(--shadow-card)]">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="text-2xl font-bold text-primary">Halton Marine</div>
+          <Link to="/" className="flex items-center">
+            <img src={haltonLogo} alt="Halton Marine Logo" className="h-12 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

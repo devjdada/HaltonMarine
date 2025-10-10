@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-dredger.jpg";
+import heroVideo from "@/assets/hero-video.mp4";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -12,13 +12,17 @@ const Hero = () => {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
+      {/* Background Video with Overlay */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
       >
-        <div className="absolute inset-0 bg-[var(--gradient-overlay)]" />
-      </div>
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-[var(--gradient-overlay)]" />
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
