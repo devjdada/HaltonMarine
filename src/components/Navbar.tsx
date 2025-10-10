@@ -23,7 +23,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
-            <img src={haltonLogo} alt="Halton Marine Logo" className="h-12 w-auto" />
+            <img src={haltonLogo} alt="Halton Marine Logo" className="h-16 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
