@@ -1,4 +1,4 @@
-import haltonLogo from "@/assets/halton-logo.png";
+import haltonLogoWhite from "@/assets/logo-white.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,7 +17,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="mb-4">
-              <img src={haltonLogo} alt="Halton Marine Logo" className="h-16 w-auto" />
+              <img src={haltonLogoWhite} alt="Halton Marine Logo" className="h-16 w-auto" />
             </div>
             <p className="text-background/80 mb-4 max-w-md">
               Leading indigenous company delivering world-class marine and dredging services 
