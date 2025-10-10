@@ -79,7 +79,7 @@ const ServicesCarousel = () => {
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${service.image})` }}
           >
-            <div className="absolute inset-0 bg-[var(--gradient-overlay)]" />
+            <div className="absolute inset-0 bg-black/50" />
           </div>
 
           {/* Content */}

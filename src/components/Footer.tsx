@@ -56,6 +56,16 @@ const Footer = () => {
                   Contact
                 </button>
               </li>
+              <li>
+                <a
+                  href="https://webmail.haltonmarinedredging.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background/80 hover:text-primary transition-colors"
+                >
+                  Webmail
+                </a>
+              </li>
             </ul>
           </div>
 
