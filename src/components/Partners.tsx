@@ -1,5 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { Handshake, Building2 } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const strategicPartners = [
   "Cloud Options Limited",
@@ -48,7 +54,7 @@ const Partners = () => {
               </h3>
             </div>
             <p className="text-muted-foreground mb-6">
-              We collaborate with industry leaders to enhance our service delivery and 
+              We collaborate with industry leaders to enhance our service delivery and
               technical capabilities:
             </p>
             <div className="space-y-3">
@@ -75,13 +81,13 @@ const Partners = () => {
               </h3>
             </div>
             <p className="text-muted-foreground mb-4">
-              <strong className="text-foreground">Commitment to Safety:</strong> At Halton Marine, 
-              safety is a cornerstone of our operations. We are resolutely committed to sustainable 
+              <strong className="text-foreground">Commitment to Safety:</strong> At Halton Marine,
+              safety is a cornerstone of our operations. We are resolutely committed to sustainable
               development, ensuring our activities safeguard worker health and the environment.
             </p>
             <p className="text-muted-foreground">
-              <strong className="text-foreground">Community Partnership:</strong> Our CSR strategy 
-              is built on social partnership, focusing on open communication, community awareness, 
+              <strong className="text-foreground">Community Partnership:</strong> Our CSR strategy
+              is built on social partnership, focusing on open communication, community awareness,
               and high-impact development programs that contribute to long-term community well-being.
             </p>
           </Card>
@@ -98,21 +104,37 @@ const Partners = () => {
             </h3>
           </div>
           <p className="text-muted-foreground mb-6">
-            We are proud to have worked with leading national and international organizations 
+            We are proud to have worked with leading national and international organizations
             in the energy sector:
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {clients.map((client, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors"
-              >
-                <span className="text-foreground font-medium text-center">
-                  {client}
-                </span>
-              </div>
-            ))}
-          </div>
+          <Carousel
+            className="w-full"
+            plugins={[
+              Autoplay({
+                delay: 2000,
+              }),
+            ]}
+            opts={{
+              loop: true,
+            }}
+          >
+            <CarouselContent>
+              {clients.map((client, index) => (
+                <CarouselItem
+                  key={index}
+                  className="basis-1/2 md:basis-1/6"
+                >
+                  <div className="p-1">
+                    <Card>
+                      <div className="flex aspect-square items-center justify-center p-6">
+                        <span className="text-sm font-medium text-center">{client}</span>
+                      </div>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </Card>
       </div>
     </section>
