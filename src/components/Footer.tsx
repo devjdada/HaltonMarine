@@ -85,6 +85,14 @@ const Footer = () => {
               </li>
               <li>
                 <a
+                  href="tel:09033897970"
+                  className="hover:text-primary transition-colors"
+                >
+                  09033897970
+                </a>
+              </li>
+              <li>
+                <a
                   href="mailto:nathkenneth@gmail.com"
                   className="hover:text-primary transition-colors"
                 >

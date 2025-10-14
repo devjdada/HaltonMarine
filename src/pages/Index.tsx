@@ -7,8 +7,8 @@ import Fleet from "@/components/Fleet";
 import Projects from "@/components/Projects";
 import Team from "@/components/Team";
 import Partners from "@/components/Partners";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CTA from "@/components/CTA";
 
 const Index = () => {
   return (
@@ -22,7 +22,7 @@ const Index = () => {
       <Projects />
       <Team />
       <Partners />
-      <Contact />
+      <CTA />
       <Footer />
     </div>
   );
