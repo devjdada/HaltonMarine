@@ -1,26 +1,26 @@
 import { Card } from "@/components/ui/card";
-import { Users, Briefcase } from "lucide-react";
+import { Briefcase } from "lucide-react";
 
 const leadership = [
   {
     name: "Nath Okoroafor",
-    role: "Chairman",
-    experience: "20+ years of strategic leadership",
+    role: "MD",
   },
   {
-    name: "Ugonna Okoroafor",
-    role: "Director of Operations",
-    experience: "17 years of operational experience",
+    name: "Engr. Ugonna Okoroafor",
+    role: "Director Operations",
   },
   {
-    name: "Franklin Atenaga",
-    role: "Project Engineer",
-    experience: "15 years of technical project management",
+    name: "Engr. Chimezie Ogunkah",
+    role: "Manager Operations",
   },
   {
-    name: "Favour Onyebuchi",
-    role: "Business Development Manager",
-    experience: "10 years driving business growth",
+    name: "Engr. Frank Ogwazuo",
+    role: "Dredging Supervisor",
+  },
+  {
+    name: "Mojisola Akinrinmade",
+    role: "Administrative/Office Manager",
   },
 ];
 
@@ -39,7 +39,7 @@ const Team = () => {
         </div>
 
         {/* Leadership Team */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 justify-center">
           {leadership.map((member, index) => (
             <Card
               key={index}
@@ -54,43 +54,14 @@ const Team = () => {
                 {member.name}
               </h3>
               <p className="text-primary font-medium mb-2">{member.role}</p>
-              <p className="text-sm text-muted-foreground">{member.experience}</p>
             </Card>
           ))}
         </div>
 
-        {/* Team Stats */}
-        <div className="grid md:grid-cols-2 gap-8">
-          <Card className="p-8 shadow-[var(--shadow-card)] text-center">
-            <div className="flex justify-center mb-4">
-              <div className="p-4 bg-primary/10 rounded-full">
-                <Users className="h-10 w-10 text-primary" />
-              </div>
-            </div>
-            <div className="text-4xl font-bold text-primary mb-2">23</div>
-            <p className="text-muted-foreground font-medium">
-              Full-Time Employees
-            </p>
-          </Card>
-
-          <Card className="p-8 shadow-[var(--shadow-card)] text-center">
-            <div className="flex justify-center mb-4">
-              <div className="p-4 bg-primary/10 rounded-full">
-                <Users className="h-10 w-10 text-primary" />
-              </div>
-            </div>
-            <div className="text-4xl font-bold text-primary mb-2">10</div>
-            <p className="text-muted-foreground font-medium">
-              Contracted Specialists
-            </p>
-          </Card>
-        </div>
-
         <Card className="mt-8 p-8 bg-primary/5 border-primary/20">
           <p className="text-center text-muted-foreground">
-            This experienced leadership team guides our dedicated workforce, ensuring we have 
-            the right talent and expertise for every job. Our commitment to excellence is reflected 
-            in our team's qualifications and proven track record.
+            Our experienced leadership team guides our dedicated workforce, ensuring we have
+            the right talent and expertise for every job.
           </p>
         </Card>
       </div>

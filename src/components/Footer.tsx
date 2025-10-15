@@ -88,7 +88,7 @@ const Footer = () => {
                   href="tel:09033897970"
                   className="hover:text-primary transition-colors"
                 >
-                  09033897970
+                  +234 (0) 9033897970
                 </a>
               </li>
               <li>
