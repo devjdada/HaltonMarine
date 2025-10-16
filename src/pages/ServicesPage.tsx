@@ -8,8 +8,8 @@ import { servicesHero } from "@/lib/page-hero-data";
 const ServicesPage = () => {
   return (
     <div className="min-h-screen">
-            <PageHero title={servicesHero.title} image={servicesHero.image} />
-
+      <Navbar />
+      <PageHero title={servicesHero.title} image={servicesHero.image} />
       <div className="pt-20">
         <ServicesDetail />
         <Fleet />

@@ -41,11 +41,10 @@ const Navbar = () => {
   }, []);
 
   const navClasses = `
-    top-0 z-50 transition-all duration-300
-    ${
-      isTransparentPage && !isScrolled
-        ? "bg-transparent text-white  "
-        : "bg-background/95 text-foreground sticky backdrop-blur-sm shadow-[var(--shadow-card)]"
+    sticky top-0 z-50 transition-all duration-300
+    ${isTransparentPage && !isScrolled
+      ? "bg-background/15  text-red"
+      : "bg-background/95 text-foreground backdrop-blur-sm shadow-[var(--shadow-card)]"
     }
   `;
 

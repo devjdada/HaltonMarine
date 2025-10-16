@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 
 interface PageHeroProps {
   title: string;
@@ -8,7 +7,6 @@ interface PageHeroProps {
 const PageHero = ({ title, image }: PageHeroProps) => {
   return (
     <div className="relative h-[400px] overflow-hidden">
-      <Navbar />
       <div className="absolute inset-0">
         <img src={image} alt={title} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/60" />
