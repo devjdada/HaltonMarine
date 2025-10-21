@@ -1,3 +1,4 @@
+
 import { Card } from "@/components/ui/card";
 import { Handshake, Building2 } from "lucide-react";
 import {
@@ -7,25 +8,39 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
+import bp from "@/assets/clients/bp.jpeg";
+import chevron from "@/assets/clients/chevron.jpeg";
+import eni from "@/assets/clients/eni.jpeg";
+import exxonmobil from "@/assets/clients/exoelmobi.png";
+import gazprom from "@/assets/clients/gazprom.jpeg";
+import nasta from "@/assets/clients/nasta_enegryg.jpeg";
+import nlng from "@/assets/clients/nlng.jpeg";
+import nnpc from "@/assets/clients/nnpc.jpeg";
+import opec from "@/assets/clients/opec.jpeg";
+import petrobras from "@/assets/clients/petrobras.jpeg";
+import shell from "@/assets/clients/shell.jpeg";
+import total from "@/assets/clients/total.png";
+import totalenergies from "@/assets/clients/total_energiied.jpeg";
+
 const strategicPartners = [
   "Cloud Options Limited",
   "Winnep Nigeria Limited",
 ];
 
 const clients = [
-  "NNPC",
-  "Nigeria LNG Limited",
-  "Total Energies",
-  "ExxonMobil",
-  "Shell",
-  "BP",
-  "Chevron",
-  "Eni",
-  "PetroChina",
-  "Petrobras",
-  "OPEC",
-  "Gazprom",
-  "Nasta Energy Oil & Gas Nigeria Limited",
+  { name: "NNPC", logo: nnpc },
+  { name: "Nigeria LNG Limited", logo: nlng },
+  { name: "Total", logo: total },
+  { name: "ExxonMobil", logo: exxonmobil },
+  { name: "Shell", logo: shell },
+  { name: "BP", logo: bp },
+  { name: "Chevron", logo: chevron },
+  { name: "Eni", logo: eni },
+  { name: "Petrobras", logo: petrobras },
+  { name: "OPEC", logo: opec },
+  { name: "Gazprom", logo: gazprom },
+  { name: "Nasta Energy", logo: nasta },
+  { name: "Total Energies", logo: totalenergies },
 ];
 
 const Partners = () => {
@@ -126,8 +141,8 @@ const Partners = () => {
                 >
                   <div className="p-1">
                     <Card>
-                      <div className="flex aspect-square items-center justify-center p-6">
-                        <span className="text-sm font-medium text-center">{client}</span>
+                      <div className="flex aspect-square items-center justify-center p-4">
+                         <img src={client.logo} alt={client.name} className="w-full h-full object-contain" />
                       </div>
                     </Card>
                   </div>

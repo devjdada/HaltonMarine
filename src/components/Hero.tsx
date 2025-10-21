@@ -1,8 +1,14 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroVideo from "@/assets/hero-video.mp4";
 
-const Hero = () => {
+interface HeroProps {
+  isHomePage?: boolean;
+}
+
+const Hero = ({ isHomePage = false }: HeroProps) => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -45,6 +51,17 @@ const Hero = () => {
             Explore Our Services
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
+          {isHomePage && (
+            <Link to="/projects">
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20"
+              >
+                View Our Projects
+              </Button>
+            </Link>
+          )}
           <Button 
             variant="outline" 
             size="lg"
