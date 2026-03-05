@@ -14,10 +14,7 @@ const leadership = [
     name: "Engr. Chimezie Ogunkah",
     role: "Manager Operations",
   },
-  {
-    name: "Engr. Frank Ogwazuo",
-    role: "Dredging Supervisor",
-  },
+  
   {
     name: "Mojisola Akinrinmade",
     role: "Administrative/Office Manager",
