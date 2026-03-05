@@ -24,8 +24,4 @@ export const seo = {
     title: "Contact Halton Marine for a Quote or Consultation",
     description: "Get in touch with the Halton Marine team to discuss your project requirements. We are always ready to provide expert advice and a competitive quote for our services.",
   },
-  careers: {
-    title: "Careers at Halton Marine - Join Our Team",
-    description: "Explore job opportunities at Halton Marine and become part of a dynamic and growing team. We are always looking for talented and motivated individuals to join us in our mission to deliver excellence in the maritime industry.",
-  },
 };

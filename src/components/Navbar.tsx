@@ -17,7 +17,6 @@ const Navbar = () => {
     { name: "Services", path: "/services" },
     { name: "Projects", path: "/projects" },
     { name: "Equipment", path: "/equipment" },
-    { name: "Careers", path: "/careers" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -29,7 +28,6 @@ const Navbar = () => {
     "/projects",
     "/equipment",
     "/contact",
-    "/careers",
   ].includes(location.pathname);
 
   useEffect(() => {
@@ -53,10 +51,9 @@ const Navbar = () => {
 
   const navClasses = `
     sticky top-0 z-50 transition-all duration-300
-    ${
-      isTransparentPage && !isScrolled
-        ? "bg-background/15  text-red"
-        : "bg-background/95 text-foreground backdrop-blur-sm shadow-[var(--shadow-card)]"
+    ${isTransparentPage && !isScrolled
+      ? "bg-background/15  text-red"
+      : "bg-background/95 text-foreground backdrop-blur-sm shadow-[var(--shadow-card)]"
     }
   `;
 

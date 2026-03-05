@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
-import { Briefcase } from "lucide-react";
+import { User } from "lucide-react";
+import chemizeImg from "../assets/chemize.jpeg";
+import mojisolaImg from "../assets/mojisola.jpeg";
 
 const leadership = [
   {
@@ -13,11 +15,12 @@ const leadership = [
   {
     name: "Engr. Chimezie Ogunkah",
     role: "Manager Operations",
+    image: chemizeImg,
   },
-  
   {
     name: "Mojisola Akinrinmade",
     role: "Administrative/Office Manager",
+    image: mojisolaImg,
   },
 ];
 
@@ -36,16 +39,24 @@ const Team = () => {
         </div>
 
         {/* Leadership Team */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 justify-center">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 justify-center">
           {leadership.map((member, index) => (
             <Card
               key={index}
               className="p-6 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-marine)] transition-all hover:scale-105 text-center"
             >
-              <div className="flex justify-center mb-4">
-                <div className="p-4 bg-primary/10 rounded-full">
-                  <Briefcase className="h-8 w-8 text-primary" />
-                </div>
+              <div className="flex justify-center mb-6">
+                {member.image ? (
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="h-32 w-32 rounded-full object-cover shadow-sm bg-primary/10"
+                  />
+                ) : (
+                  <div className="h-32 w-32 bg-primary/10 rounded-full flex items-center justify-center shadow-sm">
+                    <User className="h-12 w-12 text-primary" />
+                  </div>
+                )}
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-1">
                 {member.name}
