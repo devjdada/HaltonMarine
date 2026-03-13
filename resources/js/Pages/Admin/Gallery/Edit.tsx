@@ -1,0 +1,128 @@
+import AdminLayout from '@/Layouts/AdminLayout';
+import { Head, useForm, Link } from '@inertiajs/react';
+import { Button } from '@/Components/ui/button';
+import { Input } from '@/Components/ui/input';
+import { Label } from '@/Components/ui/label';
+import { Textarea } from '@/Components/ui/textarea';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/Components/ui/select";
+import { FormEventHandler } from 'react';
+import { Video } from 'lucide-react';
+
+interface Gallery {
+    id: number;
+    title: string | null;
+    description: string | null;
+    file_path: string;
+    type: 'image' | 'video';
+    is_active: boolean;
+}
+
+export default function Edit({ gallery }: { gallery: Gallery }) {
+    const { data, setData, post, processing, errors } = useForm({
+        _method: 'PATCH',
+        title: gallery.title || '',
+        description: gallery.description || '',
+        type: gallery.type,
+        file: null as File | null,
+    });
+
+    const submit: FormEventHandler = (e) => {
+        e.preventDefault();
+        post(route('admin.galleries.update', gallery.id));
+    };
+
+    return (
+        <AdminLayout
+            header={<h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">Edit Gallery Item</h2>}
+        >
+            <Head title="Edit Gallery Item" />
+
+            <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
+                <div className="p-6 text-gray-900 dark:text-gray-100">
+                    <form onSubmit={submit} className="space-y-6 max-w-xl">
+                        <div className="mb-6">
+                            <Label>Current File</Label>
+                            <div className="mt-2 h-40 w-fit overflow-hidden rounded border dark:border-gray-700">
+                                {gallery.type === 'image' ? (
+                                    <img 
+                                        src={`/storage/${gallery.file_path}`} 
+                                        alt={gallery.title || ''} 
+                                        className="h-full object-cover" 
+                                    />
+                                ) : (
+                                    <div className="flex h-full w-40 items-center justify-center bg-gray-100 dark:bg-gray-700 text-gray-400">
+                                        <Video className="h-12 w-12" />
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+
+                        <div>
+                            <Label htmlFor="title">Title (Optional)</Label>
+                            <Input
+                                id="title"
+                                value={data.title}
+                                onChange={(e) => setData('title', e.target.value)}
+                                className="mt-1"
+                            />
+                            {errors.title && <div className="mt-1 text-sm text-red-600 font-medium">{errors.title}</div>}
+                        </div>
+
+                        <div>
+                            <Label htmlFor="description">Description (Optional)</Label>
+                            <Textarea
+                                id="description"
+                                value={data.description}
+                                onChange={(e) => setData('description', e.target.value)}
+                                className="mt-1"
+                            />
+                            {errors.description && <div className="mt-1 text-sm text-red-600 font-medium">{errors.description}</div>}
+                        </div>
+
+                        <div>
+                            <Label htmlFor="type">Type</Label>
+                            <Select 
+                                value={data.type} 
+                                onValueChange={(value) => setData('type', value as 'image' | 'video')}
+                            >
+                                <SelectTrigger className="mt-1">
+                                    <SelectValue placeholder="Select type" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="image">Image</SelectItem>
+                                    <SelectItem value="video">Video</SelectItem>
+                                </SelectContent>
+                            </Select>
+                            {errors.type && <div className="mt-1 text-sm text-red-600 font-medium">{errors.type}</div>}
+                        </div>
+
+                        <div>
+                            <Label htmlFor="file">New File (Optional)</Label>
+                            <Input
+                                id="file"
+                                type="file"
+                                onChange={(e) => setData('file', e.target.files ? e.target.files[0] : null)}
+                                className="mt-1"
+                                accept={data.type === 'image' ? "image/*" : "video/*"}
+                            />
+                            {errors.file && <div className="mt-1 text-sm text-red-600 font-medium">{errors.file}</div>}
+                        </div>
+
+                        <div className="flex items-center gap-4">
+                            <Button disabled={processing}>Update</Button>
+                            <Button variant="outline" asChild>
+                                <Link href={route('admin.galleries.index')}>Cancel</Link>
+                            </Button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </AdminLayout>
+    );
+}
