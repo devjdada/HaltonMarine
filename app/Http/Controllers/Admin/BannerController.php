@@ -28,7 +28,7 @@ class BannerController extends Controller
             'page' => 'required|string|max:255',
             'title' => 'required|string|max:255',
             'subtitle' => 'nullable|string|max:255',
-            'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,avi|max:10240',
+            'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,avi|max:20480',
             'type' => 'required|in:image,video',
         ]);
 
@@ -55,7 +55,7 @@ class BannerController extends Controller
             'page' => 'required|string|max:255',
             'title' => 'required|string|max:255',
             'subtitle' => 'nullable|string|max:255',
-            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,avi|max:10240',
+            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,avi|max:20480',
             'type' => 'required|in:image,video',
         ]);
 
@@ -66,6 +66,8 @@ class BannerController extends Controller
             }
             $path = $request->file('image')->store('banners', 'public');
             $validated['image'] = $path;
+        } else {
+            unset($validated['image']);
         }
 
         $banner->update($validated);

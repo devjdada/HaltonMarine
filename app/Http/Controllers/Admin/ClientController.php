@@ -57,6 +57,8 @@ class ClientController extends Controller
                 Storage::disk('public')->delete($client->logo);
             }
             $validated['logo'] = $request->file('logo')->store('clients', 'public');
+        } else {
+            unset($validated['logo']);
         }
 
         $client->update($validated);

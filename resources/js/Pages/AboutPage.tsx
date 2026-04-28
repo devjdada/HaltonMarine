@@ -1,6 +1,5 @@
 import Navbar from "@/Components/Navbar";
 import PageHero from "@/Components/PageHero";
-import { aboutHero } from "@/lib/page-hero-data";
 import About from "@/Components/About";
 import Team from "@/Components/Team";
 import Footer from "@/Components/Footer";
@@ -16,9 +15,15 @@ interface TeamMember {
 
 interface AboutPageProps {
   team: TeamMember[];
+  settings: Record<string, string>;
+  banner?: {
+    title: string;
+    subtitle?: string;
+    image: string;
+  };
 }
 
-const AboutPage = ({ team }: AboutPageProps) => {
+const AboutPage = ({ team, settings, banner }: AboutPageProps) => {
   return (
     <div className="min-h-screen">
       <Helmet>
@@ -26,9 +31,13 @@ const AboutPage = ({ team }: AboutPageProps) => {
         <meta name="description" content={seo.about.description} />
       </Helmet>
       <Navbar />
-      <PageHero title={aboutHero.title} image={aboutHero.image} />
+      <PageHero 
+        title={banner?.title || "About Us"} 
+        subtitle={banner?.subtitle}
+        image={banner?.image || "https://images.unsplash.com/photo-1541888941255-658866552271?q=80&w=2000&auto=format&fit=crop"} 
+      />
       <div className="pt-20">
-        <About />
+        <About settings={settings} />
         <Team team={team} />
       </div>
       <Footer />

@@ -1,4 +1,5 @@
 
+import BentoServices from "@/Components/BentoServices";
 import Navbar from "@/Components/Navbar";
 import Hero from "@/Components/Hero";
 import ServicesCarousel from "@/Components/ServicesCarousel";
@@ -12,6 +13,7 @@ import Footer from "@/Components/Footer";
 import CTA from "@/Components/CTA";
 import { Helmet } from "react-helmet-async";
 import { seo } from "@/lib/seo";
+import { useMemo } from "react";
 
 interface Service {
   id: number;
@@ -66,22 +68,36 @@ interface Props {
   team: TeamMember[];
   equipment: Equipment[];
   banners: Banner[];
+  settings: Record<string, string>;
 }
 
-const Index = ({ services, projects, clients, team, equipment, banners }: Props) => {
+const Index = ({ services, projects, clients, team, equipment, banners, settings }: Props) => {
+  const randomService = useMemo(() => {
+    if (services.length === 0) return [];
+    const randomIndex = Math.floor(Math.random() * services.length);
+    return [services[randomIndex]];
+  }, [services]);
+
+  const randomProjects = useMemo(() => {
+    if (projects.length === 0) return [];
+    const shuffled = [...projects].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 3);
+  }, [projects]);
+
   return (
     <div className="min-h-screen">
       <Helmet>
         <title>{seo.home.title}</title>
         <meta name="description" content={seo.home.description} />
       </Helmet>
+
       <Hero isHomePage={true} banners={banners} />
       <Navbar />
-      <ServicesCarousel services={services} />
-      <About />
-      <ServicesDetail services={services} />
+      <BentoServices services={services} />
+      <About settings={settings} isHomePage={true} />
+      <ServicesDetail services={randomService} />
       <Fleet equipment={equipment} />
-      <Projects projects={projects} />
+      <Projects projects={randomProjects} />
       <Team team={team} />
       <Partners clients={clients} />
       <CTA />

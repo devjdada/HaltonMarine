@@ -14,8 +14,13 @@ interface Settings {
 export default function Index({ settings }: { settings: Settings }) {
     const { data, setData, post, processing, errors } = useForm({
         about_title: settings.about_title || '',
+        about_subheading: settings.about_subheading || '',
         about_description_1: settings.about_description_1 || '',
         about_description_2: settings.about_description_2 || '',
+        about_main_image: null as File | string | null,
+        about_indigenous_heading: settings.about_indigenous_heading || '',
+        about_indigenous_text: settings.about_indigenous_text || '',
+        about_indigenous_image: null as File | string | null,
         mission_title: settings.mission_title || '',
         mission_description: settings.mission_description || '',
         vision_title: settings.vision_title || '',
@@ -26,7 +31,9 @@ export default function Index({ settings }: { settings: Settings }) {
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
-        post(route('admin.settings.update'));
+        post(route('admin.settings.update'), {
+            forceFormData: true,
+        });
     };
 
     return (
@@ -44,14 +51,25 @@ export default function Index({ settings }: { settings: Settings }) {
                                 <CardTitle>About Section</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-4">
-                                <div>
-                                    <Label htmlFor="about_title">About Title</Label>
-                                    <Input
-                                        id="about_title"
-                                        value={data.about_title}
-                                        onChange={(e) => setData('about_title', e.target.value)}
-                                        className="mt-1"
-                                    />
+                                <div className="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <Label htmlFor="about_title">About Title</Label>
+                                        <Input
+                                            id="about_title"
+                                            value={data.about_title}
+                                            onChange={(e) => setData('about_title', e.target.value)}
+                                            className="mt-1"
+                                        />
+                                    </div>
+                                    <div>
+                                        <Label htmlFor="about_subheading">Subheading</Label>
+                                        <Input
+                                            id="about_subheading"
+                                            value={data.about_subheading}
+                                            onChange={(e) => setData('about_subheading', e.target.value)}
+                                            className="mt-1"
+                                        />
+                                    </div>
                                 </div>
                                 <div>
                                     <Label htmlFor="about_description_1">Description Paragraph 1</Label>
@@ -71,6 +89,62 @@ export default function Index({ settings }: { settings: Settings }) {
                                         onChange={(e) => setData('about_description_2', e.target.value)}
                                         className="mt-1"
                                         rows={4}
+                                    />
+                                </div>
+                                <div>
+                                    <Label htmlFor="about_main_image">Main Image</Label>
+                                    {settings.about_main_image && (
+                                        <div className="mb-2">
+                                            <img src={settings.about_main_image} alt="current" className="h-20 rounded border" />
+                                        </div>
+                                    )}
+                                    <Input
+                                        id="about_main_image"
+                                        type="file"
+                                        onChange={(e) => setData('about_main_image', e.target.files?.[0] || null)}
+                                        className="mt-1"
+                                    />
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        {/* Indigenous Excellence */}
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Indigenous Excellence Section</CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-4">
+                                <div>
+                                    <Label htmlFor="about_indigenous_heading">Heading</Label>
+                                    <Input
+                                        id="about_indigenous_heading"
+                                        value={data.about_indigenous_heading}
+                                        onChange={(e) => setData('about_indigenous_heading', e.target.value)}
+                                        className="mt-1"
+                                    />
+                                </div>
+                                <div>
+                                    <Label htmlFor="about_indigenous_text">Description Text</Label>
+                                    <Textarea
+                                        id="about_indigenous_text"
+                                        value={data.about_indigenous_text}
+                                        onChange={(e) => setData('about_indigenous_text', e.target.value)}
+                                        className="mt-1"
+                                        rows={4}
+                                    />
+                                </div>
+                                <div>
+                                    <Label htmlFor="about_indigenous_image">Indigenous Image</Label>
+                                    {settings.about_indigenous_image && (
+                                        <div className="mb-2">
+                                            <img src={settings.about_indigenous_image} alt="current" className="h-20 rounded border" />
+                                        </div>
+                                    )}
+                                    <Input
+                                        id="about_indigenous_image"
+                                        type="file"
+                                        onChange={(e) => setData('about_indigenous_image', e.target.files?.[0] || null)}
+                                        className="mt-1"
                                     />
                                 </div>
                             </CardContent>

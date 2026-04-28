@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { Link, usePage } from "@inertiajs/react";
 import { Menu, X } from "lucide-react";
-import haltonLogo from "@/assets/halton-logo.png";
 import useScreenSize from "@/hooks/use-screen-size";
 
 const Navbar = () => {
@@ -28,7 +27,7 @@ const Navbar = () => {
     "/services",
     "/projects",
     "/equipment",
-    "/gallery",
+
     "/contact",
   ].includes(url);
 
@@ -70,7 +69,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <img
-              src={haltonLogo}
+              src="/images/site-logo.png"
               alt="Halton Marine Logo"
               className="h-20 w-auto"
             />

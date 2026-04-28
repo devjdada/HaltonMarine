@@ -64,6 +64,8 @@ class TeamMemberController extends Controller
             }
             $path = $request->file('image')->store('team', 'public');
             $validated['image'] = $path;
+        } else {
+            unset($validated['image']);
         }
 
         $teamMember->update($validated);

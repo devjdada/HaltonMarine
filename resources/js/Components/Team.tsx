@@ -40,11 +40,11 @@ const Team = ({ team }: TeamProps) => {
                   <img
                     src={member.image.startsWith('/') || member.image.startsWith('http') ? member.image : `/storage/${member.image}`}
                     alt={member.name}
-                    className="h-32 w-32 rounded-full object-cover shadow-sm bg-primary/10"
+                    className="h-80 w-full object-cover shadow-lg border-2 border-primary grayscale hover:grayscale-0 transition-all duration-500"
                   />
                 ) : (
-                  <div className="h-32 w-32 bg-primary/10 rounded-full flex items-center justify-center shadow-sm">
-                    <User className="h-12 w-12 text-primary" />
+                  <div className="h-80 w-full bg-primary/10 flex items-center justify-center shadow-lg border-2 border-primary">
+                    <User className="h-20 w-20 text-primary" />
                   </div>
                 )}
               </div>

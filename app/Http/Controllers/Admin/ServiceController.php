@@ -59,6 +59,8 @@ class ServiceController extends Controller
                 Storage::disk('public')->delete($service->image);
             }
             $validated['image'] = $request->file('image')->store('services', 'public');
+        } else {
+            unset($validated['image']);
         }
 
         $service->update($validated);

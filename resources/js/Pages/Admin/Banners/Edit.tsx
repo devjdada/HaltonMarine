@@ -54,6 +54,7 @@ export default function Edit({ banner }: { banner: Banner }) {
                                     <SelectItem value="services">Services</SelectItem>
                                     <SelectItem value="projects">Projects</SelectItem>
                                     <SelectItem value="equipment">Equipment</SelectItem>
+                                    <SelectItem value="gallery">Gallery</SelectItem>
                                     <SelectItem value="contact">Contact</SelectItem>
                                 </SelectContent>
                             </Select>
@@ -119,6 +120,9 @@ export default function Edit({ banner }: { banner: Banner }) {
                                 className="mt-1"
                                 accept={data.type === 'video' ? 'video/*' : 'image/*'}
                             />
+                            <p className="mt-1 text-xs text-gray-500">
+                                {data.type === 'video' ? 'Recommended: .mp4, max 20MB' : 'Recommended: .jpg, .png, .webp'}
+                            </p>
                             {errors.image && <div className="mt-1 text-sm text-red-600 font-medium">{errors.image}</div>}
                         </div>
 

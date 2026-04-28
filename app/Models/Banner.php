@@ -9,5 +9,5 @@ class Banner extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['page', 'title', 'subtitle', 'image', 'type'];
+    protected $fillable = ['page', 'title', 'subtitle', 'image', 'type', 'is_active'];
 }

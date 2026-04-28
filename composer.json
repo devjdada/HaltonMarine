@@ -37,11 +37,13 @@
     },
     "scripts": {
         "setup": [
-            "composer install",
+            "composer install --no-dev --optimize-autoloader",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate",
             "@php artisan migrate --force",
-            "npm install",
+            "@php artisan storage:link",
+            "@php artisan optimize",
+            "npm ci",
             "npm run build"
         ],
         "dev": [

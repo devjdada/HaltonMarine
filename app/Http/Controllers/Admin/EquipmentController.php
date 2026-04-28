@@ -61,6 +61,8 @@ class EquipmentController extends Controller
                 Storage::disk('public')->delete($equipment->image);
             }
             $validated['image'] = $request->file('image')->store('equipment', 'public');
+        } else {
+            unset($validated['image']);
         }
 
         $equipment->update($validated);

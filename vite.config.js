@@ -16,4 +16,10 @@ export default defineConfig({
             '@': path.resolve(__dirname, './resources/js'),
         },
     },
+    optimizeDeps: {
+        include: ['framer-motion'],
+    },
+    ssr: {
+        noExternal: ['framer-motion'],
+    },
 });

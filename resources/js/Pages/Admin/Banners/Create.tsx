@@ -44,6 +44,7 @@ export default function Create() {
                                     <SelectItem value="services">Services</SelectItem>
                                     <SelectItem value="projects">Projects</SelectItem>
                                     <SelectItem value="equipment">Equipment</SelectItem>
+                                    <SelectItem value="gallery">Gallery</SelectItem>
                                     <SelectItem value="contact">Contact</SelectItem>
                                 </SelectContent>
                             </Select>
@@ -101,7 +102,7 @@ export default function Create() {
                                 required
                             />
                             <p className="mt-1 text-xs text-gray-500">
-                                {data.type === 'video' ? 'Recommended: .mp4, max 10MB' : 'Recommended: .jpg, .png, .webp'}
+                                {data.type === 'video' ? 'Recommended: .mp4, max 20MB' : 'Recommended: .jpg, .png, .webp'}
                             </p>
                             {errors.image && <div className="mt-1 text-sm text-red-600 font-medium">{errors.image}</div>}
                         </div>

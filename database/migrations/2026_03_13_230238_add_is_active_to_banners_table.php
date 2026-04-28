@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->string('icon')->nullable();
-            $table->timestamps();
+        Schema::table('banners', function (Blueprint $table) {
+            $table->boolean('is_active')->default(true)->after('type');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::table('banners', function (Blueprint $table) {
+            $table->dropColumn('is_active');
+        });
     }
 };

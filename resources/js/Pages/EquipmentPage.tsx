@@ -1,6 +1,5 @@
 import Navbar from "@/Components/Navbar";
 import PageHero from "@/Components/PageHero";
-import { equipmentHero } from "@/lib/equipment-data";
 import Footer from "@/Components/Footer";
 import Equipment from "@/Components/Equipment";
 import { Helmet } from "react-helmet-async";
@@ -16,9 +15,14 @@ interface EquipmentData {
 
 interface EquipmentPageProps {
   equipment: EquipmentData[];
+  banner?: {
+    title: string;
+    subtitle?: string;
+    image: string;
+  };
 }
 
-const EquipmentPage = ({ equipment }: EquipmentPageProps) => {
+const EquipmentPage = ({ equipment, banner }: EquipmentPageProps) => {
   return (
     <div className="min-h-screen">
       <Helmet>
@@ -26,7 +30,11 @@ const EquipmentPage = ({ equipment }: EquipmentPageProps) => {
         <meta name="description" content={seo.equipment.description} />
       </Helmet>
       <Navbar />
-      <PageHero title={equipmentHero.title} image={equipmentHero.image} />
+      <PageHero 
+        title={banner?.title || "Our Equipment"} 
+        subtitle={banner?.subtitle}
+        image={banner?.image || "https://images.unsplash.com/photo-1444491741275-3747c53c99b4?q=80&w=2000&auto=format&fit=crop"} 
+      />
       <div className="pt-20">
         <Equipment equipment={equipment} />
       </div>

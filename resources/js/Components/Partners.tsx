@@ -8,20 +8,6 @@ import {
 } from "@/Components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
-import bp from "@/assets/clients/bp.jpeg";
-import chevron from "@/assets/clients/chevron.jpeg";
-import eni from "@/assets/clients/eni.jpeg";
-import exxonmobil from "@/assets/clients/exoelmobi.png";
-import gazprom from "@/assets/clients/gazprom.jpeg";
-import nasta from "@/assets/clients/nasta_enegryg.jpeg";
-import nlng from "@/assets/clients/nlng.jpeg";
-import nnpc from "@/assets/clients/nnpc.jpeg";
-import opec from "@/assets/clients/opec.jpeg";
-import petrobras from "@/assets/clients/petrobras.jpeg";
-import shell from "@/assets/clients/shell.jpeg";
-import total from "@/assets/clients/total.png";
-import totalenergies from "@/assets/clients/total_energiied.jpeg";
-
 const strategicPartners = [
   "Cloud Options Limited",
   "Winnep Nigeria Limited",

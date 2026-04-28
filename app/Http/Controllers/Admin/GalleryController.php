@@ -61,6 +61,9 @@ class GalleryController extends Controller
                 Storage::disk('public')->delete($gallery->file_path);
             }
             $validated['file_path'] = $request->file('file')->store('gallery', 'public');
+        } else {
+            unset($validated['file']);
+            unset($validated['file_path']);
         }
 
         $gallery->update($validated);

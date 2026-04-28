@@ -63,6 +63,8 @@ class ProjectController extends Controller
                 Storage::disk('public')->delete($project->image);
             }
             $validated['image'] = $request->file('image')->store('projects', 'public');
+        } else {
+            unset($validated['image']);
         }
 
         $project->update($validated);
